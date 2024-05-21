@@ -1,0 +1,37 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "filemetadata",
+    srcs = [
+        "cache.go",
+        "filemetadata.go",
+    ],
+    importpath = "github.com/bazelbuild/remote-apis-sdks/go/pkg/filemetadata",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//go/pkg/cache",
+        "//go/pkg/digest",
+        "@com_github_pkg_xattr//:go_default_library",
+    ],
+)
+
+go_test(
+    name = "filemetadata_test",
+    srcs = [
+        "cache_posix_test.go",
+        "cache_test.go",
+        "filemetadata_test.go",
+    ],
+    embed = [":filemetadata"],
+    deps = [
+        "//go/pkg/digest",
+        "//go/pkg/testutil",
+        "@com_github_google_go_cmp//cmp:go_default_library",
+        "@com_github_google_go_cmp//cmp/cmpopts:go_default_library",
+    ],
+)
+
+config_setting(
+    name = "windows",
+    constraint_values = ["@platforms//os:windows"],
+)

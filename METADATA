@@ -1,0 +1,16 @@
+name: "Remote Execution API SDKs"
+description:
+    "This repository contains client libraries for the Remote Execution API "
+    "https://github.com/bazelbuild/remote-apis"
+
+third_party {
+  identifier {
+    type: "Git"
+    value: "https://github.com/bazelbuild/remote-apis-sdks/"
+    primary_source: true
+    version: "b95d27956eeb6a5a395ecae85312baca048a7bce"
+  }
+  version: "b95d27956eeb6a5a395ecae85312baca048a7bce"
+  last_upgrade_date { year: 2024 month: 5 day: 14 }
+  license_type: NOTICE
+}

@@ -1,0 +1,14 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "cache",
+    srcs = ["singleflightcache.go"],
+    importpath = "github.com/bazelbuild/remote-apis-sdks/go/pkg/cache",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "cache_test",
+    srcs = ["singleflightcache_test.go"],
+    embed = [":cache"],
+)
